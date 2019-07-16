@@ -17,7 +17,7 @@ def get_html(url):
 
 def get_page_count(html):
     soup = bs(html, 'lxml')
-    count = soup.find('li', class_ = 'pages-arrows-index').text[7:]    
+    count = soup.find('li', class_ = 'pages-arrows-index').text[5:]    
     return int(count)
 
     
@@ -29,7 +29,7 @@ def parse(html):
     for div in divs:
         
         href = div.find('div', attrs = {'class':'listing-item-title'}).find('a')['href']
-        model = div.find('div', attrs = {'class':'listing-item-title'}).find('a').text.strip()[:12]
+        model = div.find('div', attrs = {'class':'listing-item-title'}).find('a').text.strip()
         year = div.find('div', attrs = {'class':'listing-item-price'}).contents[1].text + 'г'
         price = div.find('strong').contents[0] + 'р.'
         avtos.append({'url' : href,
