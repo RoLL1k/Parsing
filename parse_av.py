@@ -11,6 +11,7 @@ BASE_URL = 'https://cars.av.by/infiniti'
 
 def get_html(url):
     request = requests.get(url)
+    request.encoding = 'utf-8'
     return request.text   
     
 
